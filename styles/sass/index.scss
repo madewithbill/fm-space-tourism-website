@@ -1,0 +1,80 @@
+@use "base";
+
+body {
+  div.background-img {
+    background: no-repeat url(../../assets/home/background-home-desktop.jpg)
+      center/cover fixed;
+    @media (max-width: base.$lg) {
+      background: no-repeat url(../../assets/home/background-home-tablet.jpg) 0%
+        65% / cover fixed;
+    }
+  }
+}
+
+main {
+  padding: base.$spacing-1600 base.$spacing-600;
+  flex: 1;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  @media (max-width: base.$lg) {
+    align-items: stretch;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: base.rem(1110);
+    @media (max-width: base.$lg) {
+      flex-direction: column;
+      gap: base.$spacing-600;
+      text-align: center;
+    }
+    > div {
+      max-width: base.rem(540);
+    }
+    h1 {
+      @include base.text-preset-5;
+      color: base.$blue-300;
+    }
+    span {
+      display: block;
+      @include base.text-preset-1;
+      color: base.$white;
+      margin: base.$spacing-300 0;
+    }
+    a {
+      width: base.rem(272);
+      height: base.rem(272);
+      background-color: base.$white;
+      border-radius: 50%;
+      flex-shrink: 0;
+      @include base.text-preset-4;
+      color: base.$blue-900;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @media (max-width: base.$lg) {
+        width: base.rem(144);
+        height: base.rem(144);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        inset: 0;
+        border-radius: 50%;
+        background-color: transparent;
+        transition: 500ms ease;
+      }
+      &:hover::after {
+        background-color: rgb(base.$white, 0.3);
+        scale: 1.5;
+      }
+    }
+  }
+}

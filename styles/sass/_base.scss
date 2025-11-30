@@ -1,0 +1,313 @@
+@use "sass:math";
+
+@function rem($pixelValue, $base: 16) {
+  @return math.div($pixelValue, $base) * 1rem;
+}
+
+$blue-900: hsl(230, 35%, 7%);
+$blue-300: hsl(231, 77%, 90%);
+$white: hsl(0, 0%, 100%);
+$font-primary: "Bellefair", sans-serif;
+$font-secondary: "Barlow", sans-serif;
+$font-tertiary: "Barlow Condensed", sans-serif;
+
+@mixin text-preset-1 {
+  font-family: $font-primary;
+  font-size: rem(144);
+  line-height: normal;
+  text-transform: uppercase;
+  @media (max-width: $md) {
+    font-size: rem(80);
+  }
+}
+@mixin text-preset-2 {
+  font-family: $font-primary;
+  font-size: rem(96);
+  line-height: normal;
+  text-transform: uppercase;
+  @media (max-width: $sm) {
+    font-size: rem(56);
+  }
+}
+@mixin text-preset-3 {
+  font-family: $font-primary;
+  font-size: rem(56);
+  line-height: normal;
+  text-transform: uppercase;
+  @media (max-width: $lg) {
+    font-size: rem(40);
+  }
+}
+@mixin text-preset-4 {
+  font-family: $font-primary;
+  font-size: rem(32);
+  line-height: normal;
+  text-transform: uppercase;
+  @media (max-width: $lg) {
+    font-size: rem(24);
+  }
+  @media (max-width: $md) {
+    font-size: rem(18);
+  }
+}
+@mixin text-preset-5 {
+  font-family: $font-tertiary;
+  font-size: rem(28);
+  letter-spacing: $spacing-50;
+  line-height: normal;
+  text-transform: uppercase;
+  @media (max-width: $lg) {
+    font-size: rem(20);
+  }
+  @media (max-width: $md) {
+    font-size: rem(16);
+  }
+}
+@mixin text-preset-6 {
+  font-family: $font-primary;
+  font-size: rem(28);
+  line-height: normal;
+  text-transform: uppercase;
+  @media (max-width: $md) {
+    font-size: rem(16);
+  }
+}
+@mixin text-preset-7 {
+  font-family: $font-tertiary;
+  font-size: rem(28);
+  line-height: normal;
+  letter-spacing: $spacing-25;
+  text-transform: uppercase;
+}
+@mixin text-preset-8 {
+  font-family: $font-tertiary;
+  font-size: rem(28);
+  line-height: normal;
+  letter-spacing: $spacing-25;
+  text-transform: uppercase;
+  @media (max-width: $sm) {
+    font-size: rem(14);
+  }
+}
+@mixin text-preset-9 {
+  font-family: $font-secondary;
+  font-size: rem(18);
+  line-height: 180%;
+  @media (max-width: $lg) {
+    font-size: rem(16);
+  }
+  @media (max-width: $sm) {
+    font-size: rem(15);
+  }
+}
+
+@mixin page-fade {
+  animation-duration: 2.2s;
+  animation-name: fade-in;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+$spacing-25: rem(2);
+$spacing-50: rem(4);
+$spacing-100: rem(8);
+$spacing-150: rem(12);
+$spacing-200: rem(16);
+$spacing-300: rem(24);
+$spacing-400: rem(32);
+$spacing-500: rem(40);
+$spacing-600: rem(48);
+$spacing-800: rem(64);
+$spacing-1000: rem(80);
+$spacing-1200: rem(96);
+$spacing-1600: rem(128);
+
+$sm: rem(576);
+$md: rem(767);
+$lg: rem(992);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: unset;
+  text-decoration: unset;
+  border: none;
+}
+
+body {
+  @include text-preset-9;
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  color: $white;
+  font-size: 100%;
+  background-color: $blue-900;
+  overflow-x: hidden;
+  div.background-img {
+    position: absolute;
+    inset: 0;
+    @include page-fade;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  color: $white;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  @include page-fade;
+}
+
+p {
+  text-transform: none;
+  color: $blue-300;
+}
+
+button {
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+div.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: $spacing-500;
+  @media (max-width: $md) {
+    padding: $spacing-300;
+  }
+  div {
+    position: relative;
+    flex: 1 0 0;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    svg {
+      margin: 0 $spacing-800;
+      @media (max-width: $lg) {
+        margin: 0 $spacing-500;
+      }
+      @media (max-width: $md) {
+        margin: 0;
+        width: rem(40);
+        height: rem(40);
+      }
+    }
+    div {
+      height: 1px;
+      opacity: 0.25;
+      background: $white;
+      @media (max-width: $lg) {
+        display: none;
+      }
+    }
+  }
+  nav {
+    flex: none;
+    margin-left: $spacing-400 * -1;
+    background: rgba($white, 0.05);
+    backdrop-filter: blur(40px);
+    padding: 0 $spacing-800;
+    @media (max-width: $lg) {
+      padding: 0 $spacing-500;
+    }
+    @media (max-width: $md) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 999;
+      width: 66%;
+      margin-left: 0;
+      padding: 0 0 0 $spacing-400;
+      min-height: 100svh;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      gap: $spacing-1000;
+      transform: translateX(100%);
+      &.nav-transition {
+        transition: transform 600ms ease-in-out;
+      }
+      &.is-open {
+        transform: translateX(0%);
+      }
+    }
+    button.mobile-close {
+      display: none;
+      margin: $spacing-400;
+      @media (max-width: $md) {
+        display: block;
+      }
+    }
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: end;
+      gap: $spacing-600;
+      @media (max-width: $md) {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-400;
+        width: 100%;
+      }
+      li {
+        flex: none;
+        height: $spacing-1200;
+        @media (min-width: $md) {
+          border-bottom: 3px solid transparent;
+          transition: border-bottom 800ms ease;
+          &:hover {
+            border-bottom: 3px solid rgb($white, 0.5);
+          }
+          &.is-active {
+            border-bottom: 3px solid $white;
+          }
+        }
+        @media (max-width: $md) {
+          height: auto;
+          &.is-active {
+            border-right: 3px solid $white;
+          }
+        }
+        a {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          span {
+            @include text-preset-9;
+            margin-right: $spacing-150;
+          }
+        }
+      }
+    }
+  }
+  button.hamburger {
+    position: relative;
+    z-index: 99;
+    display: none;
+    @media (max-width: $md) {
+      display: block;
+    }
+  }
+}

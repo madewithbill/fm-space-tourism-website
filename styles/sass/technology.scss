@@ -1,0 +1,163 @@
+@use "base";
+
+body {
+  div.background-img {
+    background: no-repeat
+      url(../../assets/technology/background-technology-desktop.jpg)
+      center/cover fixed;
+    @media (max-width: base.$lg) {
+      background: no-repeat
+        url(../../assets/technology/background-technology-tablet.jpg)
+        center/cover fixed;
+    }
+    @media (max-width: base.$sm) {
+      background: no-repeat
+        url(../../assets/technology/background-technology-mobile.jpg)
+        center/cover fixed;
+    }
+  }
+}
+
+main {
+  padding: base.$spacing-600 0 base.$spacing-600 base.$spacing-600;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  max-width: base.rem(1275);
+  @media (max-width: base.$lg) {
+    align-items: stretch;
+    padding: base.$spacing-500 0;
+  }
+  @media (max-width: base.$sm) {
+    padding: base.$spacing-300 0;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    gap: base.$spacing-300;
+    margin-bottom: base.$spacing-300;
+    @media (max-width: base.$lg) {
+      padding: 0 base.$spacing-500;
+    }
+    @media (max-width: base.$sm) {
+      padding: 0 base.$spacing-300;
+      justify-content: center;
+    }
+    span {
+      color: base.$white;
+      font-family: base.$font-tertiary;
+      font-size: base.rem(28);
+      font-weight: 700;
+      letter-spacing: base.rem(4.725);
+      opacity: 0.25;
+      @media (max-width: base.$lg) {
+        font-size: base.rem(20);
+      }
+      @media (max-width: base.$sm) {
+        font-size: base.rem(16);
+      }
+    }
+    p {
+      @include base.text-preset-5;
+    }
+  }
+  > div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: base.$spacing-400;
+    @media (max-width: base.$lg) {
+      flex-direction: column-reverse;
+    }
+    @media (max-width: base.$sm) {
+      padding-top: base.$spacing-600;
+    }
+    div.tech-content {
+      min-width: base.rem(635);
+      display: flex;
+      gap: base.$spacing-800;
+      @media (max-width: base.$lg) {
+        flex-direction: column;
+        align-items: center;
+        gap: base.$spacing-500;
+        text-align: center;
+        min-width: unset;
+        padding: 0 base.$spacing-500;
+      }
+      @media (max-width: base.$sm) {
+        padding: 0 base.$spacing-300;
+      }
+      > div {
+        @media (max-width: base.$lg) {
+          max-width: base.rem(512);
+        }
+        span {
+          display: block;
+          @include base.text-preset-4;
+          opacity: 0.5;
+          margin-bottom: base.$spacing-200;
+        }
+        h1 {
+          @include base.text-preset-3;
+          margin-bottom: base.$spacing-300;
+          @media (max-width: base.$lg) {
+            margin-bottom: base.$spacing-200;
+          }
+        }
+        p {
+          @include base.text-preset-9;
+        }
+      }
+      nav {
+        ul {
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          gap: base.$spacing-400;
+          @media (max-width: base.$lg) {
+            flex-direction: row;
+            gap: base.$spacing-200;
+          }
+          li {
+            button {
+              @include base.text-preset-4;
+              height: base.rem(80);
+              width: base.rem(80);
+              border: 1px solid rgba(base.$white, 0.25);
+              border-radius: 50%;
+              color: base.$white;
+              transition: all 800ms ease;
+              @media (max-width: base.$lg) {
+                height: base.rem(56);
+                width: base.rem(56);
+              }
+              &:hover {
+                border: 1px solid base.$white;
+              }
+              &.is-active {
+                color: base.$blue-900;
+                background-color: base.$white;
+              }
+            }
+          }
+        }
+      }
+    }
+    img {
+      width: 40vw;
+      aspect-ratio: 1;
+      object-fit: cover;
+      @media (max-width: base.$lg) {
+        width: 100%;
+        aspect-ratio: unset;
+        object-position: center center;
+        height: base.rem(357);
+      }
+      @media (max-width: base.$sm) {
+        object-position: center bottom;
+        height: base.rem(258);
+      }
+    }
+  }
+}
