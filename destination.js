@@ -43,7 +43,10 @@ navList.forEach(link => {
 
 
 async function setPlanetData() {
-    planetImg.src = data.destinations[currentPlanetIndex].images.webp
+    const imgLoad = new Image()
+    imgLoad.src = data.destinations[currentPlanetIndex].images.webp
+    await imgLoad.decode()
+    planetImg.src = imgLoad.src
     planetImg.alt = data.destinations[currentPlanetIndex].name
     planetName.textContent = data.destinations[currentPlanetIndex].name
     planetDesc.textContent = data.destinations[currentPlanetIndex].description

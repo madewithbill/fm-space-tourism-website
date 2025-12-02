@@ -34,7 +34,10 @@ navList.forEach(link => {
 })
 
 async function setTechData() {
-    techImg.src = data.technology[currentTechIndex].images.portrait
+    const imgLoad = new Image()
+    imgLoad.src = data.technology[currentTechIndex].images.portrait
+    await imgLoad.decode()
+    techImg.src = imgLoad.src
     techImg.alt = `${data.technology[currentTechIndex].name} sample image.`
     techName.textContent = data.technology[currentTechIndex].name
     techDesc.textContent = data.technology[currentTechIndex].description

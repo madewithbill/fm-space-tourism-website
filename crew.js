@@ -36,7 +36,10 @@ navList.forEach(link => {
 })
 
 async function setCrewData() {
-    crewImg.src = data.crew[currentCrewIndex].images.webp
+    const imgLoad = new Image()
+    imgLoad.src = data.crew[currentCrewIndex].images.webp
+    await imgLoad.decode()
+    crewImg.src = imgLoad.src
     crewImg.alt = data.crew[currentCrewIndex].name
     crewName.textContent = data.crew[currentCrewIndex].name
     crewBio.textContent = data.crew[currentCrewIndex].bio
