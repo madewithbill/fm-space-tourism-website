@@ -23,7 +23,6 @@ main {
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin-left: auto;
   max-width: base.rem(1275);
   @media (max-width: base.$lg) {
     align-items: stretch;

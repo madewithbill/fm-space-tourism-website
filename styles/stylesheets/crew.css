@@ -61,6 +61,7 @@ main {
   position: relative;
   z-index: 1;
   width: 100%;
+  margin: auto;
   animation-duration: 2.2s;
   animation-name: fade-in;
 }
