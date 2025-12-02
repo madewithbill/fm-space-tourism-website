@@ -30,7 +30,7 @@ navList.forEach(link => {
         currentPlanetIndex = data.destinations.findIndex(planet => {
             return planet.name.toLowerCase() === e.target.innerText.toLowerCase()
         })
-        setPlanetData()
+        await setPlanetData()
         transitionElements.forEach(element => fadeIn(element))
         navList.forEach(link => link.parentElement.classList.remove('is-active'))
         link.parentElement.classList.add('is-active')
@@ -42,7 +42,7 @@ navList.forEach(link => {
 
 
 
-function setPlanetData() {
+async function setPlanetData() {
     planetImg.src = data.destinations[currentPlanetIndex].images.webp
     planetImg.alt = data.destinations[currentPlanetIndex].name
     planetName.textContent = data.destinations[currentPlanetIndex].name

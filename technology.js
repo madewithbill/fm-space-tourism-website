@@ -26,14 +26,14 @@ navList.forEach(link => {
     link.addEventListener('click', async (e) => {
         await Promise.all(transitionElements.map(element => fadeOut(element)))
         currentTechIndex = Number(e.target.id)
-        setTechData()
+        await setTechData()
         transitionElements.forEach(element => fadeIn(element))
         navList.forEach(link => link.classList.remove('is-active'))
         link.classList.add('is-active')
     })
 })
 
-function setTechData() {
+async function setTechData() {
     techImg.src = data.technology[currentTechIndex].images.portrait
     techImg.alt = `${data.technology[currentTechIndex].name} sample image.`
     techName.textContent = data.technology[currentTechIndex].name

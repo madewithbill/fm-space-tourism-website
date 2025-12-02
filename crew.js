@@ -28,14 +28,14 @@ navList.forEach(link => {
     link.addEventListener('click', async (e) => {
         await Promise.all(transitionElements.map(element => fadeOut(element)))
         currentCrewIndex = Number(e.target.id)
-        setCrewData()
+        await setCrewData()
         transitionElements.forEach(element => fadeIn(element))
         navList.forEach(link => link.classList.remove('is-active'))
         link.classList.add('is-active')
     })
 })
 
-function setCrewData() {
+async function setCrewData() {
     crewImg.src = data.crew[currentCrewIndex].images.webp
     crewImg.alt = data.crew[currentCrewIndex].name
     crewName.textContent = data.crew[currentCrewIndex].name
