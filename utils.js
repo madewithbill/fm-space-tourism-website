@@ -19,8 +19,14 @@ document.querySelector('button.mobile-close').addEventListener('click', () => {
     document.getElementById('main-nav').addEventListener('transitionend', () => document.getElementById('main-nav').classList.remove('nav-transition'), { once: true })
 })
 
+//global data fetch
+async function getData() {
+    const res = await fetch('./data/data.json')
+    const data = await res.json()
+    return data
+}
 
-
+export const data = await getData()
 
 //transition utilities
 export const transitionElements = Array.from(document.querySelectorAll('[data-transition]'))

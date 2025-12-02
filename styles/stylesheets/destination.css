@@ -7,6 +7,10 @@
   border: none;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   font-family: "Barlow", sans-serif;
   font-size: 1.125rem;
@@ -321,36 +325,40 @@ main header p {
   }
 }
 main > div {
-  display: flex;
   flex: 1;
-  align-items: center;
+  display: flex;
+  justify-content: space-between;
   gap: 2rem;
+  padding: 8rem 0;
 }
 @media (max-width: 62rem) {
   main > div {
     flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+  }
+}
+@media (max-width: 36rem) {
+  main > div {
+    padding: 0;
   }
 }
 main > div img {
-  width: 30rem;
-  height: 30rem;
-  box-sizing: content-box;
-  padding: 1.5rem;
+  max-width: 30rem;
+  max-height: 30rem;
 }
 @media (max-width: 62rem) {
   main > div img {
     width: 18.75rem;
     height: 18.75rem;
     margin: 2.625rem auto;
-    padding: 0;
   }
 }
 @media (max-width: 36rem) {
   main > div img {
     width: 9.375rem;
     height: 9.375rem;
-    margin: 2.625rem auto;
-    padding: 0;
+    margin: 1.65625rem auto;
   }
 }
 main > div > div {
@@ -358,8 +366,6 @@ main > div > div {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-  box-sizing: content-box;
-  padding: 2.5rem;
 }
 @media (max-width: 62rem) {
   main > div > div {
@@ -367,7 +373,6 @@ main > div > div {
     gap: 1.5rem;
     align-items: center;
     text-align: center;
-    padding: 0;
   }
 }
 main > div > div nav ul {
@@ -442,6 +447,11 @@ main > div > div div.stat-wrapper {
   display: flex;
   gap: 1.5rem;
 }
+@media (max-width: 36rem) {
+  main > div > div div.stat-wrapper {
+    flex-direction: column;
+  }
+}
 main > div > div div.stat-wrapper > div {
   flex: 1;
 }
@@ -469,6 +479,11 @@ main > div > div div.stat-wrapper p {
 @media (max-width: 47.9375rem) {
   main > div > div div.stat-wrapper p {
     font-size: 1rem;
+  }
+}
+@media (max-width: 36rem) {
+  main > div > div div.stat-wrapper p {
+    font-size: 1.75rem;
   }
 }
 main > div > div div.stat-wrapper p {

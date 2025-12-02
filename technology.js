@@ -1,4 +1,4 @@
-import { data } from './data/data.js'
+import { data } from './utils.js'
 import { transitionElements } from './utils.js'
 import { fadeIn } from './utils.js'
 import { fadeOut } from './utils.js'
